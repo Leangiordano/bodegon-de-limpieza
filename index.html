@@ -78,11 +78,14 @@
 </style>
 </head>
 <body class="bg-white text-gray-800 overflow-x-hidden">
+    <!-- Burbujas de jabón flotantes -->
     <div id="bubbles-container" class="fixed inset-0 pointer-events-none z-0"></div>
 
+<!-- HEADER -->
 <header class="bg-white border-b border-gray-100 sticky top-0 z-50 relative">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between py-5">
+            <!-- Logo Clickable -->
             <div onclick="goToInicio()" class="flex items-center gap-x-3 cursor-pointer select-none">
                 <div class="w-11 h-11 rounded-2xl soap-gradient flex items-center justify-center text-white shadow-inner">
                     <i class="fa-solid fa-bucket text-3xl"></i>
@@ -93,9 +96,11 @@
                 </div>
             </div>
 
+            <!-- Navegación Desktop con submenú -->
             <nav class="hidden md:flex items-center gap-x-7 text-sm font-medium">
                 <a onclick="goToInicio()" class="cursor-pointer hover:text-cyan-500 transition-colors">Inicio</a>
 
+                <!-- Productos con dropdown -->
                 <div class="relative group">
                     <a onclick="showSection('catalogo'); filterProducts('Todos')" 
                        class="cursor-pointer hover:text-cyan-500 transition-colors flex items-center gap-x-1">
@@ -103,6 +108,7 @@
                         <i class="fa-solid fa-chevron-down text-xs ml-1 transition-transform group-hover:rotate-180"></i>
                     </a>
                     
+                    <!-- Dropdown de categorías -->
                     <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-100 rounded-2xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                         <a onclick="filterProducts('Todos'); showSection('catalogo')" class="block px-5 py-2.5 text-sm hover:bg-cyan-50 cursor-pointer">Todos los productos</a>
                         <div class="border-t my-1"></div>
@@ -121,12 +127,14 @@
                 <a onclick="showSection('contacto')" class="cursor-pointer hover:text-cyan-500 transition-colors">Contacto</a>
             </nav>
 
+            <!-- Carrito + WhatsApp + Menú Hamburguesa -->
             <div class="flex items-center gap-x-3">
                 <a href="https://wa.me/541158344920" target="_blank" class="hidden sm:flex items-center gap-x-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-2xl text-sm font-medium transition-colors">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
                     <span class="hidden lg:inline">11 5834-4920</span>
                 </a>
 
+                <!-- Carrito -->
                 <div onclick="toggleCart()" class="flex items-center gap-x-2 cursor-pointer group bg-white border border-gray-200 hover:border-cyan-300 px-4 py-2 rounded-2xl transition-all">
                     <div class="relative">
                         <i class="fa-solid fa-cart-shopping text-2xl text-gray-700 group-hover:text-cyan-500 transition-colors"></i>
@@ -142,6 +150,7 @@
         </div>
     </div>
 
+    <!-- MENÚ DESPLEGABLE MÓVIL -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 absolute left-0 right-0 top-full shadow-xl z-40 max-h-[80vh] overflow-y-auto">
         <div class="px-6 py-4 space-y-2 font-medium text-gray-700 text-base">
             <a onclick="goToInicio(); toggleMobileMenu()" class="block py-2.5 border-b border-gray-50 cursor-pointer hover:text-cyan-500">Inicio</a>
@@ -169,6 +178,7 @@
     </div>
 </header>
 
+<!-- HERO -->
 <section class="relative h-[92vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-cyan-50">
     <div class="max-w-5xl mx-auto px-6 text-center z-10">
         <div class="inline-flex items-center gap-x-2 bg-white border border-cyan-100 px-5 py-1.5 rounded-3xl mb-6 shadow-sm">
@@ -205,6 +215,7 @@
     </div>
 </section>
 
+<!-- CATÁLOGO -->
 <section id="catalogo" class="section active py-16 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-y-4">
@@ -220,6 +231,7 @@
             </div>
         </div>
 
+        <!-- Botones de Filtro por Tipo de Producto -->
         <div class="flex flex-wrap gap-2 mb-8">
             <button onclick="filterProducts('Todos')" class="px-4 py-2 bg-cyan-600 text-white text-sm font-medium rounded-2xl hover:bg-cyan-700 transition-colors">Todos</button>
             <button onclick="filterProducts('Jabones Líquidos')" class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-2xl hover:bg-gray-200 transition-colors">Jabones Líquidos</button>
@@ -231,7 +243,8 @@
         </div>
 
         <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            </div>
+            <!-- Productos cargados por JS -->
+        </div>
 
         <div class="mt-8 text-center text-xs text-gray-400">
             * Precios sujetos a modificación sin previo aviso. Válidos para compras mayoristas.
@@ -239,6 +252,7 @@
     </div>
 </section>
 
+<!-- SOBRE NOSOTROS -->
 <section id="nosotros" class="section py-20 bg-gray-50">
     <div class="max-w-4xl mx-auto px-6">
         <div class="grid md:grid-cols-5 gap-12 items-center">
@@ -246,7 +260,7 @@
                 <h2 class="text-5xl font-bold tracking-tighter mb-6">¿Quiénes somos?</h2>
                 <div class="space-y-5 text-lg text-gray-600">
                     <p>Somos un <strong>bodegón mayorista</strong> de productos de limpieza e higiene ubicado en Quilmes Oeste. Trabajamos con las mejores marcas y fórmulas para ofrecerte calidad al precio más conveniente.</p>
-                    <p>Atendemos comercios, institutions y hogares que buscan productos de primera calidad con entrega rápida y atención personalizada.</p>
+                    <p>Atendemos comercios, instituciones y hogares que buscan productos de primera calidad con entrega rápida y atención personalizada.</p>
                 </div>
                 
                 <div class="mt-8 grid grid-cols-3 gap-4 text-center">
@@ -273,6 +287,7 @@
     </div>
 </section>
 
+<!-- UBICACIÓN -->
 <section id="ubicacion" class="section py-16">
     <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-10">
@@ -302,17 +317,13 @@
                     </div>
                 </div>
                 
-                <div class="mt-8 pt-6 border-t text-sm">
-                    <div class="font-bold text-gray-900 mb-2">Horarios de atención</div>
-                    <div class="grid grid-cols-2 gap-y-1 text-gray-900">
-                        <div class="font-medium">Lunes a Viernes</div>
-                        <div>9:00 - 13:00<br>14:00 - 19:00</div>
-                        
-                        <div class="font-medium">Sábados</div>
-                        <div>09:00 - 16:00</div>
-                        
-                        <div class="font-medium">Domingos</div>
-                        <div>09:00 - 13:00</div>
+                <!-- Estructura exacta solicitada para días y horarios con texto más oscuro (text-gray-900) -->
+                <div class="mt-8 pt-6 border-t text-gray-900">
+                    <div class="font-bold mb-4">Horarios de atención</div>
+                    <div class="mt-6 grid grid-cols-3 gap-1 text-sm">
+                        <div><span class="font-medium">Lunes a Viernes:</span><br>9:00 - 13:00<br>14:00 - 19:00</div>
+                        <div><span class="font-medium">Sábados:</span><br>09:00 - 16:00</div>
+                        <div><span class="font-medium">Domingos:</span><br>09:00 - 13:00</div>
                     </div>
                 </div>
             </div>
@@ -332,6 +343,7 @@
     </div>
 </section>
 
+<!-- CONTACTO -->
 <section id="contacto" class="section py-20 bg-gradient-to-b from-white to-gray-50/50">
     <div class="max-w-xl mx-auto px-6">
         <div class="text-center mb-10">
@@ -387,6 +399,7 @@
     </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-y-10">
         <div>
@@ -427,6 +440,7 @@
     </div>
 </footer>
 
+<!-- CARRITO LATERAL -->
 <div id="cart-sidebar" class="cart-sidebar fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-[100] flex flex-col">
     <div class="px-7 pt-6 pb-4 border-b flex items-center justify-between">
         <div>
